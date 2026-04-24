@@ -26,6 +26,7 @@
   --gray2: #585A63;
   --gray3: #9A9DA7;
   --success: #16A34A;
+  --danger: #DC2626;
   --font-head: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -55,7 +56,7 @@ body::before {
 
 a { color: inherit; text-decoration: none; }
 
-/* ─── NAV ─── */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
@@ -65,7 +66,6 @@ nav {
   border-bottom: 1px solid var(--border);
   padding: 0 1.5rem;
 }
-
 .nav-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -75,7 +75,6 @@ nav {
   height: 60px;
   gap: 1.5rem;
 }
-
 .logo {
   font-family: var(--font-head);
   font-size: 1.05rem;
@@ -87,7 +86,6 @@ nav {
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
-
 .logo-mark {
   width: 28px;
   height: 28px;
@@ -101,21 +99,9 @@ nav {
   font-weight: 500;
   font-size: 0.82rem;
 }
-
-.nav-links {
-  display: flex;
-  gap: 1.75rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--gray2);
-  font-size: 0.86rem;
-  font-weight: 500;
-  transition: color 0.15s;
-}
+.nav-links { display: flex; gap: 1.75rem; list-style: none; }
+.nav-links a { color: var(--gray2); font-size: 0.86rem; font-weight: 500; transition: color 0.15s; }
 .nav-links a:hover { color: var(--ink); }
-
 .nav-timer {
   display: flex;
   align-items: center;
@@ -128,14 +114,7 @@ nav {
   padding: 0.3rem 0.75rem;
   white-space: nowrap;
 }
-.timer-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
+.timer-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
 .nav-cta {
   background: var(--lime);
   color: var(--ink);
@@ -150,25 +129,22 @@ nav {
 }
 .nav-cta:hover { background: var(--lime-light); transform: translateY(-1px); }
 
-/* ─── ALERT BANNER ─── */
+/* ALERT BANNER (detailed sticker) */
 .alert-banner {
   background: var(--ink);
   color: var(--bg);
   text-align: center;
-  padding: 0.55rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  line-height: 1.5;
 }
 .alert-banner strong { font-weight: 700; color: var(--lime); }
+.alert-banner .sep { opacity: 0.5; margin: 0 0.5rem; }
 
-/* ─── HERO ─── */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 3.5rem 1.5rem 2.5rem;
-}
-
+/* HERO */
+.hero { position: relative; overflow: hidden; padding: 3.5rem 1.5rem 2.5rem; }
 .hero-glow {
   position: absolute;
   top: -220px;
@@ -178,7 +154,6 @@ nav {
   background: radial-gradient(circle, var(--lime-glow) 0%, transparent 68%);
   pointer-events: none;
 }
-
 .hero-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -189,7 +164,6 @@ nav {
   position: relative;
   z-index: 1;
 }
-
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -216,13 +190,12 @@ h1 {
   margin-bottom: 1.25rem;
   letter-spacing: -0.04em;
 }
-
-h1 .highlight {
+h1 .highlight, h2 .highlight {
   position: relative;
   display: inline-block;
   white-space: nowrap;
 }
-h1 .highlight::after {
+h1 .highlight::after, h2 .highlight::after {
   content: '';
   position: absolute;
   bottom: 0.05em;
@@ -233,6 +206,7 @@ h1 .highlight::after {
   z-index: -1;
   border-radius: 2px;
 }
+h2 .highlight::after { height: 0.3em; }
 
 .hero-sub {
   font-size: 1.02rem;
@@ -243,20 +217,9 @@ h1 .highlight::after {
 }
 .hero-sub strong { color: var(--ink); font-weight: 600; }
 
-.hero-cta-row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
+.hero-cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
 
-.hero-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.75rem;
-}
-
+.hero-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
 .pill {
   display: inline-flex;
   align-items: center;
@@ -278,7 +241,6 @@ h1 .highlight::after {
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
 }
-
 .stat-item { display: flex; flex-direction: column; }
 .stat-num {
   font-family: var(--font-head);
@@ -297,7 +259,7 @@ h1 .highlight::after {
   font-weight: 500;
 }
 
-/* ─── WEBINAR CARD ─── */
+/* WEBINAR CARD */
 .webinar-card {
   background: var(--card);
   border: 1px solid var(--border-strong);
@@ -306,7 +268,6 @@ h1 .highlight::after {
   position: relative;
   box-shadow: 0 10px 30px rgba(10,10,15,0.06);
 }
-
 .webinar-card::before {
   content: '';
   position: absolute;
@@ -317,7 +278,6 @@ h1 .highlight::after {
   background: var(--lime);
   border-radius: 14px 14px 0 0;
 }
-
 .webinar-label {
   font-size: 0.66rem;
   font-weight: 700;
@@ -326,7 +286,6 @@ h1 .highlight::after {
   color: var(--green);
   margin-bottom: 0.5rem;
 }
-
 .webinar-title {
   font-family: var(--font-head);
   font-size: 1.1rem;
@@ -336,7 +295,6 @@ h1 .highlight::after {
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
-
 .webinar-date-row {
   display: flex;
   align-items: center;
@@ -349,13 +307,7 @@ h1 .highlight::after {
   padding: 0.5rem 0.7rem;
   font-weight: 500;
 }
-
-.countdown {
-  display: flex;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-}
-
+.countdown { display: flex; gap: 0.4rem; margin-bottom: 1rem; }
 .cd-box {
   flex: 1;
   background: var(--bg2);
@@ -364,28 +316,11 @@ h1 .highlight::after {
   padding: 0.5rem 0.25rem;
   text-align: center;
 }
-
-.cd-num {
-  font-family: var(--font-mono);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--ink);
-  display: block;
-  line-height: 1;
-}
-
-.cd-label {
-  font-size: 0.55rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gray3);
-  margin-top: 0.2rem;
-  font-weight: 500;
-}
+.cd-num { font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--ink); display: block; line-height: 1; }
+.cd-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray3); margin-top: 0.2rem; font-weight: 500; }
 
 .form-group { margin-bottom: 0.6rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-
 .form-group input, .form-group select {
   width: 100%;
   background: var(--bg2);
@@ -415,51 +350,18 @@ h1 .highlight::after {
   transition: all 0.15s;
   letter-spacing: -0.01em;
 }
-.submit-btn:hover {
-  background: var(--lime-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(196,245,66,0.5);
-}
+.submit-btn:hover { background: var(--lime-light); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(196,245,66,0.5); }
 
-.form-trust {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  font-size: 0.7rem;
-  color: var(--gray3);
-  margin-top: 0.65rem;
-}
+.form-trust { display: flex; align-items: center; justify-content: center; gap: 0.35rem; font-size: 0.7rem; color: var(--gray3); margin-top: 0.65rem; }
 
-.seats-bar {
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 0.55rem 0.7rem;
-  margin-bottom: 0.85rem;
-  font-size: 0.72rem;
-}
-.seats-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.35rem;
-}
+.seats-bar { background: var(--bg2); border-radius: 6px; padding: 0.55rem 0.7rem; margin-bottom: 0.85rem; font-size: 0.72rem; }
+.seats-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem; }
 .seats-text { color: var(--gray2); }
 .seats-num { color: var(--ink); font-weight: 700; font-family: var(--font-mono); }
-.seats-progress {
-  width: 100%;
-  height: 3px;
-  background: var(--bg3);
-  border-radius: 2px;
-}
-.seats-fill {
-  height: 100%;
-  width: 73%;
-  background: var(--lime);
-  border-radius: 2px;
-}
+.seats-progress { width: 100%; height: 3px; background: var(--bg3); border-radius: 2px; }
+.seats-fill { height: 100%; width: 73%; background: var(--lime); border-radius: 2px; }
 
-/* ─── LOGOS STRIP ─── */
+/* LOGOS STRIP */
 .logos-section {
   padding: 2rem 1.5rem;
   border-top: 1px solid var(--border);
@@ -467,35 +369,10 @@ h1 .highlight::after {
   background: var(--bg2);
   overflow: hidden;
 }
-
-.logos-label {
-  text-align: center;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--gray3);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.logos-track-wrap {
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-
-.logos-track {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  animation: scroll-logos 35s linear infinite;
-  width: max-content;
-}
-
-@keyframes scroll-logos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
+.logos-label { text-align: center; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gray3); margin-bottom: 1rem; font-weight: 600; }
+.logos-track-wrap { overflow: hidden; mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%); }
+.logos-track { display: flex; gap: 1.5rem; align-items: center; animation: scroll-logos 35s linear infinite; width: max-content; }
+@keyframes scroll-logos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .logo-pill {
   background: var(--card);
   border: 1px solid var(--border);
@@ -510,11 +387,9 @@ h1 .highlight::after {
   letter-spacing: -0.01em;
 }
 
-/* ─── SECTIONS ─── */
+/* SECTIONS */
 section { padding: 4rem 1.5rem; }
-
 .section-inner { max-width: 1200px; margin: 0 auto; }
-
 .section-label {
   font-size: 0.68rem;
   font-weight: 700;
@@ -523,7 +398,6 @@ section { padding: 4rem 1.5rem; }
   color: var(--green);
   margin-bottom: 0.6rem;
 }
-
 h2 {
   font-family: var(--font-head);
   font-size: clamp(1.6rem, 3.2vw, 2.4rem);
@@ -533,32 +407,7 @@ h2 {
   letter-spacing: -0.035em;
   margin-bottom: 0.85rem;
 }
-
-h2 .highlight {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-}
-h2 .highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 0.05em;
-  left: -0.05em;
-  right: -0.05em;
-  height: 0.3em;
-  background: var(--lime);
-  z-index: -1;
-  border-radius: 2px;
-}
-
-.section-desc {
-  font-size: 0.98rem;
-  color: var(--gray2);
-  max-width: 620px;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-}
-
+.section-desc { font-size: 0.98rem; color: var(--gray2); max-width: 620px; line-height: 1.6; margin-bottom: 2.5rem; }
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -567,77 +416,49 @@ h2 .highlight::after {
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
-
 .section-head .section-desc { margin-bottom: 0; }
 
-/* ─── MARKET SIGNAL (compact 3-card) ─── */
+/* MARKET SECTION (6 fear cards) */
 .market-section { background: var(--bg2); }
-
-.market-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
+.market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .market-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 1.75rem;
-  position: relative;
-  overflow: hidden;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
 }
-
+.market-card:hover { border-color: var(--border-strong); }
 .market-num {
   font-family: var(--font-head);
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--ink);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.04em;
 }
-.market-num .lime { background: var(--lime); padding: 0 0.1em; border-radius: 4px; }
-
+.market-num .lime-bg { background: var(--lime); padding: 0 0.08em; border-radius: 4px; }
 .market-headline {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 0.4rem;
   letter-spacing: -0.02em;
 }
-
-.market-body {
-  font-size: 0.82rem;
-  color: var(--gray2);
-  line-height: 1.55;
-}
-
+.market-body { font-size: 0.82rem; color: var(--gray2); line-height: 1.55; }
 .market-source {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   color: var(--gray3);
-  margin-top: 1rem;
+  margin-top: 0.85rem;
   border-top: 1px solid var(--border);
-  padding-top: 0.6rem;
+  padding-top: 0.55rem;
 }
 
-.market-note {
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--gray2);
-  margin-top: 1.5rem;
-  font-style: italic;
-}
-
-/* ─── PROGRAMS ─── */
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
+/* PROGRAMS */
+.programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .program-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -648,18 +469,12 @@ h2 .highlight::after {
   flex-direction: column;
   position: relative;
 }
-
 .program-card:hover {
   border-color: var(--border-strong);
   transform: translateY(-3px);
   box-shadow: 0 14px 32px rgba(10,10,15,0.08);
 }
-
-.program-card.featured {
-  border-color: var(--ink);
-  border-width: 2px;
-}
-
+.program-card.featured { border-color: var(--ink); border-width: 2px; }
 .featured-badge {
   position: absolute;
   top: 0;
@@ -673,12 +488,7 @@ h2 .highlight::after {
   padding: 0.3rem 0.65rem;
   border-radius: 0 0 6px 6px;
 }
-
-.program-header {
-  padding: 1.25rem 1.25rem 1rem;
-  border-bottom: 1px solid var(--border);
-}
-
+.program-header { padding: 1.25rem 1.25rem 1rem; border-bottom: 1px solid var(--border); }
 .program-tag {
   display: inline-block;
   font-size: 0.62rem;
@@ -692,80 +502,40 @@ h2 .highlight::after {
   margin-bottom: 0.6rem;
 }
 .program-tag.neutral { background: var(--bg3); color: var(--ink2); }
-
 .program-name {
   font-family: var(--font-head);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 0.3rem;
   letter-spacing: -0.025em;
   line-height: 1.15;
 }
-
-.program-duration {
-  font-size: 0.72rem;
-  color: var(--gray3);
-  font-family: var(--font-mono);
-}
-
-.program-body {
-  padding: 1.1rem 1.25rem 1.25rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.program-tagline {
-  font-size: 0.8rem;
-  color: var(--gray2);
-  line-height: 1.45;
-  margin-bottom: 1rem;
-  min-height: 2.2em;
-}
-
-.program-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
-}
-
+.program-duration { font-size: 0.72rem; color: var(--gray3); font-family: var(--font-mono); }
+.program-body { padding: 1.1rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.program-tagline { font-size: 0.8rem; color: var(--gray2); line-height: 1.45; margin-bottom: 0.9rem; min-height: 2.2em; }
+.program-price-row { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.3rem; }
 .price-main {
   font-family: var(--font-head);
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--ink);
   letter-spacing: -0.03em;
 }
-
-.price-emi {
-  font-size: 0.72rem;
-  color: var(--green);
-  margin-bottom: 0.85rem;
-  font-family: var(--font-mono);
-  font-weight: 500;
-}
-
-.program-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 1.1rem;
-  flex: 1;
-}
-
-.program-features li {
-  font-size: 0.78rem;
-  color: var(--gray1);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
-  line-height: 1.4;
-}
+.price-emi { font-size: 0.72rem; color: var(--green); margin-bottom: 0.85rem; font-family: var(--font-mono); font-weight: 500; }
+.program-features { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.85rem; }
+.program-features li { font-size: 0.76rem; color: var(--gray1); display: flex; align-items: flex-start; gap: 0.45rem; line-height: 1.4; }
 .check { color: var(--green); flex-shrink: 0; font-weight: 700; }
-
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 1rem; }
+.tag {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.66rem;
+  font-family: var(--font-mono);
+  color: var(--gray2);
+}
 .program-btn {
   width: 100%;
   padding: 0.7rem 0.9rem;
@@ -780,75 +550,71 @@ h2 .highlight::after {
   display: block;
   margin-top: auto;
 }
+.program-btn.primary { background: var(--lime); color: var(--ink); border-color: var(--ink); }
+.program-btn.primary:hover { background: var(--lime-light); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(196,245,66,0.4); }
+.program-btn.outline { background: transparent; color: var(--ink); border-color: var(--border-strong); }
+.program-btn.outline:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-.program-btn.primary {
-  background: var(--lime);
-  color: var(--ink);
-  border-color: var(--ink);
-}
-.program-btn.primary:hover {
-  background: var(--lime-light);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(196,245,66,0.4);
-}
-
-.program-btn.outline {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--border-strong);
-}
-.program-btn.outline:hover {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
-}
-
-/* ─── WHY IK (replaces competitor table) ─── */
-.why-section { background: var(--bg2); }
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.why-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
-}
-
-.why-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--lime);
+.pricing-note {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg3);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  margin-bottom: 0.9rem;
+  border-left: 3px solid var(--lime);
+  font-size: 0.82rem;
+  color: var(--gray1);
+  line-height: 1.6;
 }
+.pricing-note strong { color: var(--ink); }
 
-.why-title {
+/* COMPARISON TABLE */
+.comparison-section { background: var(--bg2); }
+.compare-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+thead tr { background: var(--bg3); border-bottom: 1px solid var(--border); }
+thead th {
+  padding: 0.9rem 1.15rem;
+  text-align: left;
   font-family: var(--font-head);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 800;
   color: var(--ink);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
-
-.why-body {
-  font-size: 0.85rem;
-  color: var(--gray2);
-  line-height: 1.55;
+thead th.ik-col {
+  background: rgba(196,245,66,0.25);
+  color: var(--ink);
+  border-left: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+  text-transform: none;
+  font-size: 0.78rem;
 }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(10,10,15,0.03); }
+tbody td { padding: 0.85rem 1.15rem; color: var(--gray1); }
+tbody td.ik-col {
+  background: rgba(196,245,66,0.1);
+  color: var(--ink);
+  border-left: 2px solid rgba(10,10,15,0.4);
+  border-right: 2px solid rgba(10,10,15,0.4);
+  font-weight: 600;
+}
+.check-green { color: var(--success); font-weight: 600; }
+.check-red { color: var(--danger); }
+.check-amber { color: var(--amber); }
 
-.why-body strong { color: var(--ink); font-weight: 600; }
+.compare-note { margin-top: 1rem; font-size: 0.76rem; color: var(--gray3); font-style: italic; text-align: center; }
 
-/* ─── 80E CALCULATOR ─── */
+/* 80E CALCULATOR */
 .calc-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -859,7 +625,6 @@ h2 .highlight::after {
   position: relative;
   overflow: hidden;
 }
-
 .calc-card::after {
   content: '₹';
   position: absolute;
@@ -872,24 +637,8 @@ h2 .highlight::after {
   line-height: 1;
   pointer-events: none;
 }
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.calc-field label {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--gray2);
-  margin-bottom: 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.5rem; }
+.calc-field label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--gray2); margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .calc-field input, .calc-field select {
   width: 100%;
   background: var(--bg2);
@@ -903,29 +652,9 @@ h2 .highlight::after {
   transition: border-color 0.15s;
 }
 .calc-field input:focus, .calc-field select:focus { border-color: var(--ink); }
-
-.calc-results {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-
-.calc-results-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.calc-result-item {
-  text-align: center;
-  padding: 0.85rem;
-  background: var(--card);
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
+.calc-results { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.calc-results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 0.75rem; }
+.calc-result-item { text-align: center; padding: 0.85rem; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
 .calc-result-num {
   font-family: var(--font-head);
   font-size: 1.3rem;
@@ -935,16 +664,7 @@ h2 .highlight::after {
   letter-spacing: -0.03em;
 }
 .calc-result-num.ink { color: var(--ink); }
-
-.calc-result-label {
-  font-size: 0.66rem;
-  color: var(--gray3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0.2rem;
-  font-weight: 500;
-}
-
+.calc-result-label { font-size: 0.66rem; color: var(--gray3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; font-weight: 500; }
 .calc-insight {
   background: rgba(22,163,74,0.08);
   border: 1px solid rgba(22,163,74,0.2);
@@ -954,15 +674,9 @@ h2 .highlight::after {
   color: var(--green);
   line-height: 1.5;
 }
+.calc-note { font-size: 0.68rem; color: var(--gray3); margin-top: 0.65rem; line-height: 1.5; }
 
-.calc-note {
-  font-size: 0.68rem;
-  color: var(--gray3);
-  margin-top: 0.65rem;
-  line-height: 1.5;
-}
-
-/* ─── SCHOLARSHIP ─── */
+/* SCHOLARSHIP */
 .scholarship-card {
   background: linear-gradient(135deg, var(--card) 0%, rgba(196,245,66,0.18) 100%);
   border: 1px solid rgba(196,245,66,0.45);
@@ -973,9 +687,7 @@ h2 .highlight::after {
   gap: 2.5rem;
   align-items: center;
 }
-
 .sch-badges { display: flex; flex-direction: column; gap: 0.75rem; }
-
 .sch-badge {
   display: flex;
   align-items: center;
@@ -985,7 +697,6 @@ h2 .highlight::after {
   border-radius: 10px;
   padding: 0.75rem 1rem;
 }
-
 .sch-icon {
   width: 32px;
   height: 32px;
@@ -997,12 +708,9 @@ h2 .highlight::after {
   flex-shrink: 0;
   background: var(--bg2);
 }
-
 .sch-name { font-weight: 700; font-size: 0.85rem; color: var(--ink); letter-spacing: -0.01em; }
 .sch-amount { font-family: var(--font-mono); font-size: 0.72rem; color: var(--green); margin-top: 0.15rem; }
-
 .sch-cta-area { text-align: center; }
-
 .sch-deadline {
   display: inline-flex;
   align-items: center;
@@ -1016,30 +724,25 @@ h2 .highlight::after {
   font-family: var(--font-mono);
   font-weight: 500;
 }
+.sch-stack {
+  margin-top: 1.25rem;
+  padding: 0.75rem;
+  background: rgba(196,245,66,0.2);
+  border: 1px solid rgba(196,245,66,0.5);
+  border-radius: 8px;
+  font-size: 0.76rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.sch-stack strong { font-weight: 700; }
 
-/* ─── EMI WIDGET ─── */
+/* EMI */
 .emi-section { background: var(--bg2); }
-
-.emi-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.emi-tabs {
-  display: flex;
-  gap: 0.35rem;
-  margin-bottom: 1.5rem;
-  background: var(--bg2);
-  border-radius: 10px;
-  padding: 0.25rem;
-}
-
+.emi-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; max-width: 900px; margin: 0 auto; }
+.emi-tabs { display: flex; gap: 0.35rem; margin-bottom: 1.5rem; background: var(--bg2); border-radius: 10px; padding: 0.25rem; flex-wrap: wrap; }
 .emi-tab {
   flex: 1;
+  min-width: 120px;
   padding: 0.55rem 0.75rem;
   border-radius: 7px;
   border: none;
@@ -1051,129 +754,47 @@ h2 .highlight::after {
   background: transparent;
   color: var(--gray2);
 }
-
-.emi-tab.active {
-  background: var(--ink);
-  color: var(--bg);
-}
-
-.emi-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-  align-items: flex-start;
-}
-
-.emi-input-area label {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--gray2);
-  margin-bottom: 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
+.emi-tab.active { background: var(--ink); color: var(--bg); }
+.emi-content { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; align-items: flex-start; }
+.emi-input-area label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--gray2); margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .emi-slider-wrap { margin: 0.75rem 0 1.1rem; }
-
-.emi-slider {
-  width: 100%;
-  -webkit-appearance: none;
-  height: 4px;
-  background: var(--bg3);
-  border-radius: 2px;
-  outline: none;
-  margin-bottom: 0.4rem;
-}
-
-.emi-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  background: var(--lime);
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.emi-slider-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.65rem;
-  color: var(--gray3);
-  font-family: var(--font-mono);
-}
-
-.emi-results-area {
-  background: var(--bg2);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-
-.emi-result-big {
-  text-align: center;
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.emi-per-month {
-  font-family: var(--font-head);
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--ink);
-  display: block;
-  letter-spacing: -0.04em;
-}
-
-.emi-per-month-label {
-  font-size: 0.72rem;
-  color: var(--gray3);
-  margin-top: 0.2rem;
-}
-
+.emi-slider { width: 100%; -webkit-appearance: none; height: 4px; background: var(--bg3); border-radius: 2px; outline: none; margin-bottom: 0.4rem; }
+.emi-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--lime); border: 2px solid var(--ink); border-radius: 50%; cursor: pointer; }
+.emi-slider-labels { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--gray3); font-family: var(--font-mono); }
+.emi-results-area { background: var(--bg2); border-radius: 12px; padding: 1.25rem; }
+.emi-result-big { text-align: center; margin-bottom: 0.85rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border); }
+.emi-per-month { font-family: var(--font-head); font-size: 2.1rem; font-weight: 800; color: var(--ink); display: block; letter-spacing: -0.04em; }
+.emi-per-month-label { font-size: 0.72rem; color: var(--gray3); margin-top: 0.2rem; }
 .emi-breakdown { display: flex; flex-direction: column; gap: 0.5rem; }
-
 .emi-row { display: flex; justify-content: space-between; font-size: 0.78rem; }
 .emi-row-label { color: var(--gray2); }
 .emi-row-val { color: var(--ink); font-family: var(--font-mono); font-weight: 600; }
 .emi-row-val.green { color: var(--green); }
-
-.emi-lenders {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-}
-
-.emi-lenders-label {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gray3);
-  margin-bottom: 0.6rem;
-  font-weight: 600;
-}
-
+.emi-lenders { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.emi-lenders-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray3); margin-bottom: 0.6rem; font-weight: 600; }
 .lender-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.lender-pill { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.68rem; color: var(--gray2); font-weight: 500; }
 
-.lender-pill {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.3rem 0.65rem;
-  font-size: 0.68rem;
-  color: var(--gray2);
-  font-weight: 500;
+.emp-note {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1rem;
+  background: rgba(22,163,74,0.08);
+  border: 1px solid rgba(22,163,74,0.2);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--gray1);
+  line-height: 1.55;
 }
+.emp-note strong { color: var(--green); }
 
-/* ─── INSTRUCTORS (horizontal scroll) ─── */
+/* HORIZONTAL SCROLL STRIPS */
 .scroll-strip {
   display: flex;
   gap: 0.85rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0.25rem 1.5rem 1.25rem;
-  margin: 0 -1.5rem;
+  padding: 0.25rem 0 1.25rem;
+  margin: 0;
   scrollbar-width: thin;
   scrollbar-color: var(--gray3) transparent;
 }
@@ -1181,6 +802,10 @@ h2 .highlight::after {
 .scroll-strip::-webkit-scrollbar-track { background: transparent; }
 .scroll-strip::-webkit-scrollbar-thumb { background: var(--gray3); border-radius: 3px; }
 
+.scroll-pad-start { flex: 0 0 max(1.5rem, calc((100vw - 1200px) / 2)); }
+.scroll-pad-end { flex: 0 0 max(1.5rem, calc((100vw - 1200px) / 2)); }
+
+/* INSTRUCTORS */
 .instructor-card {
   flex: 0 0 200px;
   background: var(--card);
@@ -1192,7 +817,6 @@ h2 .highlight::after {
   transition: all 0.2s;
 }
 .instructor-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
-
 .instructor-avatar {
   width: 52px;
   height: 52px;
@@ -1207,61 +831,34 @@ h2 .highlight::after {
   color: var(--ink);
   letter-spacing: -0.02em;
 }
-
-.instructor-name {
-  font-family: var(--font-head);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.02em;
-}
-
-.instructor-company {
-  font-size: 0.72rem;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-  font-weight: 600;
-}
-
+.instructor-name { font-family: var(--font-head); font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; letter-spacing: -0.02em; }
+.instructor-company { font-size: 0.72rem; color: var(--ink); margin-bottom: 0.2rem; font-weight: 600; }
 .instructor-role { font-size: 0.68rem; color: var(--gray3); line-height: 1.35; }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials-section { background: var(--bg2); }
+/* WHY IK */
+.why-section { background: var(--bg2); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.why-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.why-icon { width: 40px; height: 40px; background: var(--lime); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; margin-bottom: 0.9rem; }
+.why-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.why-body { font-size: 0.85rem; color: var(--gray2); line-height: 1.55; }
+.why-body strong { color: var(--ink); font-weight: 600; }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
+/* TESTIMONIALS */
 .testimonial-card {
+  flex: 0 0 340px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.35rem;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 }
-
 .stars { color: var(--amber); font-size: 0.78rem; margin-bottom: 0.6rem; }
-
-.testimonial-text {
-  font-size: 0.82rem;
-  color: var(--gray1);
-  line-height: 1.55;
-  flex: 1;
-  margin-bottom: 1rem;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  border-top: 1px solid var(--border);
-  padding-top: 0.85rem;
-}
-
+.testimonial-text { font-size: 0.82rem; color: var(--gray1); line-height: 1.55; flex: 1; margin-bottom: 1rem; font-style: italic; }
+.testimonial-text strong { color: var(--ink); font-style: normal; font-weight: 700; }
+.testimonial-author { display: flex; align-items: center; gap: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.85rem; }
 .author-avatar {
   width: 34px;
   height: 34px;
@@ -1275,10 +872,8 @@ h2 .highlight::after {
   flex-shrink: 0;
   font-family: var(--font-head);
 }
-
 .author-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
 .author-detail { font-size: 0.68rem; color: var(--gray2); margin-top: 0.1rem; }
-
 .author-hike {
   margin-left: auto;
   background: rgba(22,163,74,0.1);
@@ -1292,6 +887,44 @@ h2 .highlight::after {
   white-space: nowrap;
 }
 
+/* ALUMNI OFFERS (simple cards) */
+.offers-section { background: var(--bg2); padding-top: 2rem; padding-bottom: 4rem; }
+.offer-card {
+  flex: 0 0 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+  scroll-snap-align: start;
+  text-align: center;
+}
+.offer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.offer-name { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.offer-role { font-size: 0.66rem; color: var(--gray2); margin-top: 0.15rem; line-height: 1.35; }
+.offer-co {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-head);
+  letter-spacing: -0.01em;
+}
+
 .ratings-row {
   display: flex;
   align-items: center;
@@ -1302,33 +935,11 @@ h2 .highlight::after {
   border-top: 1px solid var(--border);
   flex-wrap: wrap;
 }
-
-.rating-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: var(--gray2);
-}
+.rating-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--gray2); }
 .rating-item strong { color: var(--ink); font-weight: 700; font-family: var(--font-head); letter-spacing: -0.02em; font-size: 1rem; }
 .rating-item .src { font-size: 0.7rem; color: var(--gray3); }
 
-/* ─── VIDEO TESTIMONIALS ─── */
-.video-strip { padding-left: 0; padding-right: 0; }
-.video-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-
-.video-scroll {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0.25rem 1.5rem 1rem;
-  margin: 0 -1.5rem;
-  scrollbar-width: thin;
-}
-.video-scroll::-webkit-scrollbar { height: 6px; }
-.video-scroll::-webkit-scrollbar-thumb { background: var(--gray3); border-radius: 3px; }
-
+/* VIDEO TESTIMONIALS */
 .video-card {
   flex: 0 0 320px;
   background: var(--card);
@@ -1338,14 +949,8 @@ h2 .highlight::after {
   scroll-snap-align: start;
   display: block;
   transition: all 0.2s;
-  cursor: pointer;
 }
-.video-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(10,10,15,0.08);
-}
-
+.video-card:hover { border-color: var(--border-strong); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(10,10,15,0.08); }
 .video-thumb {
   position: relative;
   aspect-ratio: 16/9;
@@ -1355,18 +960,10 @@ h2 .highlight::after {
   justify-content: center;
   overflow: hidden;
 }
-
 .video-thumb.a { background: linear-gradient(135deg, #0A0B0D 0%, #1A1C20 60%, #2d4a10 100%); }
 .video-thumb.b { background: linear-gradient(135deg, #1A1C20 0%, #0A0B0D 50%, #1e3a8a 100%); }
 .video-thumb.c { background: linear-gradient(135deg, #0A0B0D 0%, #1A1C20 60%, #3d2e10 100%); }
-
-.video-thumb::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(196,245,66,0.15), transparent 50%);
-}
-
+.video-thumb::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(196,245,66,0.15), transparent 50%); }
 .video-play {
   width: 50px;
   height: 50px;
@@ -1382,7 +979,6 @@ h2 .highlight::after {
   border: 2px solid var(--ink);
 }
 .video-card:hover .video-play { transform: scale(1.1); }
-
 .video-duration {
   position: absolute;
   bottom: 0.6rem;
@@ -1395,7 +991,6 @@ h2 .highlight::after {
   border-radius: 4px;
   z-index: 1;
 }
-
 .video-meta {
   position: absolute;
   top: 0.75rem;
@@ -1411,78 +1006,24 @@ h2 .highlight::after {
   padding: 0.25rem 0.55rem;
   border-radius: 4px;
 }
-
 .video-body { padding: 0.9rem 1rem; }
-.video-title {
-  font-family: var(--font-head);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.3rem;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-}
+.video-title { font-family: var(--font-head); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; letter-spacing: -0.02em; line-height: 1.3; }
 .video-sub { font-size: 0.72rem; color: var(--gray2); }
+.yt-link-row { text-align: center; margin-top: 1.25rem; font-size: 0.82rem; }
+.yt-link-row a { color: var(--ink); font-weight: 600; border-bottom: 1.5px solid var(--lime); padding-bottom: 2px; }
 
-.yt-link-row {
-  text-align: center;
-  margin-top: 1.25rem;
-  font-size: 0.82rem;
-}
-.yt-link-row a {
-  color: var(--ink);
-  font-weight: 600;
-  border-bottom: 1.5px solid var(--lime);
-  padding-bottom: 2px;
-}
-
-/* ─── GUARANTEE ─── */
-.guarantee-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-.guarantee-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.35rem;
-  transition: all 0.15s;
-}
+/* GUARANTEE */
+.guarantee-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.guarantee-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.35rem; transition: all 0.15s; }
 .guarantee-card:hover { border-color: var(--border-strong); }
-
 .guarantee-icon { font-size: 1.6rem; margin-bottom: 0.65rem; }
-
-.guarantee-title {
-  font-family: var(--font-head);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.35rem;
-  letter-spacing: -0.02em;
-}
-
+.guarantee-title { font-family: var(--font-head); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; letter-spacing: -0.02em; }
 .guarantee-desc { font-size: 0.76rem; color: var(--gray2); line-height: 1.55; }
 
-/* ─── FAQ ─── */
+/* FAQ */
 .faq-section { background: var(--bg2); }
-
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.faq-item {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
+.faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
 .faq-q {
   width: 100%;
   background: none;
@@ -1500,64 +1041,19 @@ h2 .highlight::after {
   gap: 1rem;
   letter-spacing: -0.01em;
 }
-
-.faq-arrow {
-  flex-shrink: 0;
-  font-size: 0.7rem;
-  color: var(--gray3);
-  transition: transform 0.25s;
-}
-
+.faq-arrow { flex-shrink: 0; font-size: 0.7rem; color: var(--gray3); transition: transform 0.25s; }
 .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--ink); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 0.84rem; color: var(--gray2); line-height: 1.65; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a-inner { padding: 0 1.15rem 1rem; border-top: 1px solid var(--border); padding-top: 0.75rem; }
 
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  font-size: 0.84rem;
-  color: var(--gray2);
-  line-height: 1.65;
-}
-.faq-item.open .faq-a { max-height: 380px; }
-
-.faq-a-inner {
-  padding: 0 1.15rem 1rem;
-  border-top: 1px solid var(--border);
-  padding-top: 0.75rem;
-}
-
-/* ─── FINAL CTA ─── */
-.final-cta-section {
-  position: relative;
-  overflow: hidden;
-  padding: 4.5rem 1.5rem;
-}
-
-.final-cta-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(196,245,66,0.22) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.final-cta-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
+/* FINAL CTA */
+.final-cta-section { position: relative; overflow: hidden; padding: 4.5rem 1.5rem; }
+.final-cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(196,245,66,0.22) 0%, transparent 65%); pointer-events: none; }
+.final-cta-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
 .final-cta-inner h2 { margin-bottom: 0.85rem; }
 .final-cta-inner p { font-size: 0.98rem; color: var(--gray2); margin-bottom: 2rem; line-height: 1.6; }
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
+.cta-buttons { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
 .btn-primary {
   background: var(--lime);
   color: var(--ink);
@@ -1571,12 +1067,7 @@ h2 .highlight::after {
   display: inline-block;
   letter-spacing: -0.01em;
 }
-.btn-primary:hover {
-  background: var(--lime-light);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(196,245,66,0.45);
-}
-
+.btn-primary:hover { background: var(--lime-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(196,245,66,0.45); }
 .btn-outline {
   background: transparent;
   color: var(--ink);
@@ -1591,68 +1082,19 @@ h2 .highlight::after {
 }
 .btn-outline:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-.trust-row {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.76rem;
-  color: var(--gray2);
-}
+.trust-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.75rem; justify-content: center; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.76rem; color: var(--gray2); }
 .trust-item strong { color: var(--ink); font-weight: 700; }
 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  padding: 2.5rem 1.5rem 1.75rem;
-}
-
+/* FOOTER */
+footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2.5rem 1.5rem 1.75rem; }
 .footer-inner { max-width: 1200px; margin: 0 auto; }
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2.5rem;
-  margin-bottom: 2rem;
-}
-
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
 .footer-brand .logo { margin-bottom: 0.75rem; }
-
-.footer-desc {
-  font-size: 0.8rem;
-  color: var(--gray2);
-  line-height: 1.6;
-  max-width: 300px;
-  margin-bottom: 1rem;
-}
-
-.footer-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-}
-.fb {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.25rem 0.55rem;
-  font-size: 0.68rem;
-  color: var(--gray1);
-  font-weight: 500;
-}
-
+.footer-desc { font-size: 0.8rem; color: var(--gray2); line-height: 1.6; max-width: 300px; margin-bottom: 1rem; }
+.footer-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.fb { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; font-size: 0.68rem; color: var(--gray1); font-weight: 500; }
 .footer-socials { display: flex; gap: 0.45rem; }
-
 .social-btn {
   width: 30px;
   height: 30px;
@@ -1668,49 +1110,17 @@ footer {
   transition: all 0.15s;
 }
 .social-btn:hover { border-color: var(--ink); color: var(--ink); }
-
-.footer-col h4 {
-  font-family: var(--font-head);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.85rem;
-  letter-spacing: -0.01em;
-}
-
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-col a {
-  font-size: 0.8rem;
-  color: var(--gray2);
-  transition: color 0.15s;
-}
+.footer-col h4 { font-family: var(--font-head); font-size: 0.72rem; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col a { font-size: 0.8rem; color: var(--gray2); transition: color 0.15s; }
 .footer-col a:hover { color: var(--ink); }
-
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-size: 0.72rem; color: var(--gray3); }
-
 .footer-legal { display: flex; gap: 1.25rem; }
 .footer-legal a { font-size: 0.72rem; color: var(--gray3); transition: color 0.15s; }
 .footer-legal a:hover { color: var(--ink); }
 
-/* ─── STICKY MOBILE CTA ─── */
+/* STICKY MOBILE CTA */
 .sticky-cta {
   display: none;
   position: fixed;
@@ -1727,59 +1137,37 @@ footer {
   box-shadow: 0 -4px 20px rgba(10,10,15,0.08);
 }
 
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gray3); }
-
-/* ─── ANIMATIONS ─── */
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* ANIMATIONS */
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .animate { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
 .delay-1 { animation-delay: 0.05s; }
 .delay-2 { animation-delay: 0.1s; }
 .delay-3 { animation-delay: 0.15s; }
 .delay-4 { animation-delay: 0.2s; }
 
-/* ─── MODAL ─── */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(10,10,15,0.55);
-  backdrop-filter: blur(6px);
-  align-items: center;
-  justify-content: center;
-}
-.modal-overlay.open { display: flex; }
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray3); }
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
   .programs-grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .guarantee-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
-  .market-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: 1fr 1fr; }
   .scholarship-card { grid-template-columns: 1fr; gap: 2rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .calc-grid { grid-template-columns: 1fr; }
   .calc-results-grid { grid-template-columns: 1fr; }
   .emi-content { grid-template-columns: 1fr; }
 }
-
 @media (max-width: 640px) {
   .programs-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; }
+  .market-grid { grid-template-columns: 1fr; }
   .guarantee-grid { grid-template-columns: 1fr 1fr; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   nav .nav-links, .nav-timer { display: none; }
@@ -1793,9 +1181,9 @@ footer {
 </head>
 <body>
 
-<!-- ALERT BANNER -->
+<!-- ALERT BANNER (detailed sticker) -->
 <div class="alert-banner">
-  🔥 May 2026 cohort filling fast — <strong>₹25K scholarship</strong> window closes May 8
+  🔥 <strong>Only 23 seats left</strong> in the May 2026 cohort<span class="sep">·</span>Next batch closes May 15<span class="sep">·</span><strong>₹25K scholarship</strong> window closes May 8
 </div>
 
 <!-- NAV -->
@@ -1822,7 +1210,7 @@ footer {
   <div class="hero-inner">
     <div>
       <div class="hero-badge animate">
-        <span class="star">✦</span> 27,000+ engineers upleveled · ₹2Cr highest offer
+        <span class="star">✦</span> 27,000+ Engineers Upleveled · ₹2Cr Highest Offer
       </div>
       <h1 class="animate delay-1">
         UpLevel your<br>
@@ -1837,44 +1225,29 @@ footer {
       </div>
       <div class="hero-pills animate delay-3">
         <div class="pill"><span class="pill-icon">🎯</span> 5+ Years Experience</div>
-        <div class="pill"><span class="pill-icon">🏆</span> MAANG+ Practitioners</div>
+        <div class="pill"><span class="pill-icon">🏆</span> 500+ MAANG+ Practitioners</div>
         <div class="pill"><span class="pill-icon">💰</span> ₹1L – ₹3L · 0% EMI</div>
         <div class="pill"><span class="pill-icon">📅</span> 2–14 Months · Live + Async</div>
       </div>
       <div class="hero-stats animate delay-4">
-        <div class="stat-item">
-          <span class="stat-num">₹63L</span>
-          <span class="stat-label">Avg Package</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">₹2Cr</span>
-          <span class="stat-label">Highest Offer</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">10x</span>
-          <span class="stat-label">Avg ROI</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">27K+</span>
-          <span class="stat-label">Alumni</span>
-        </div>
+        <div class="stat-item"><span class="stat-num">₹63L</span><span class="stat-label">Avg Package</span></div>
+        <div class="stat-item"><span class="stat-num">₹2Cr</span><span class="stat-label">Highest Offer</span></div>
+        <div class="stat-item"><span class="stat-num">10x</span><span class="stat-label">Avg ROI</span></div>
+        <div class="stat-item"><span class="stat-num">27K+</span><span class="stat-label">Alumni</span></div>
       </div>
     </div>
 
     <!-- WEBINAR CARD -->
     <div class="webinar-card animate delay-2" id="webinar-form">
       <div class="webinar-label">🎓 Free Masterclass — Live in IST</div>
-      <div class="webinar-title">UpLevel Your Tech Career: From SDE to AI Engineer</div>
-      <div class="webinar-date-row">
-        📅 Saturday, May 10 · 7:00 PM IST · 60 min
-      </div>
+      <div class="webinar-title">UpLevel Your Tech Career:<br>From SDE to AI Engineer</div>
+      <div class="webinar-date-row">📅 Saturday, May 10 · 7:00 PM IST · 60 min</div>
       <div class="countdown" id="countdown">
         <div class="cd-box"><span class="cd-num" id="cd-days">04</span><div class="cd-label">Days</div></div>
         <div class="cd-box"><span class="cd-num" id="cd-hrs">12</span><div class="cd-label">Hours</div></div>
         <div class="cd-box"><span class="cd-num" id="cd-min">33</span><div class="cd-label">Min</div></div>
         <div class="cd-box"><span class="cd-num" id="cd-sec">47</span><div class="cd-label">Sec</div></div>
       </div>
-
       <div class="seats-bar">
         <div class="seats-row">
           <span class="seats-text">Seats claimed</span>
@@ -1908,7 +1281,7 @@ footer {
               <option>Engineering Manager</option>
               <option>Data Scientist / MLE</option>
               <option>TPM / Product Manager</option>
-              <option>Other</option>
+              <option>Other Tech Professional</option>
             </select>
           </div>
         </div>
@@ -1933,86 +1306,56 @@ footer {
   <div class="logos-label">Alumni now work at</div>
   <div class="logos-track-wrap">
     <div class="logos-track">
-      <div class="logo-pill">Google</div>
-      <div class="logo-pill">Amazon</div>
-      <div class="logo-pill">Meta</div>
-      <div class="logo-pill">Microsoft</div>
-      <div class="logo-pill">Apple</div>
-      <div class="logo-pill">Netflix</div>
-      <div class="logo-pill">OpenAI</div>
-      <div class="logo-pill">NVIDIA</div>
-      <div class="logo-pill">Stripe</div>
-      <div class="logo-pill">LinkedIn</div>
-      <div class="logo-pill">Uber</div>
-      <div class="logo-pill">Airbnb</div>
-      <div class="logo-pill">Adobe</div>
-      <div class="logo-pill">Flipkart</div>
-      <div class="logo-pill">Zomato</div>
-      <div class="logo-pill">Swiggy</div>
-      <div class="logo-pill">Paytm</div>
-      <div class="logo-pill">Walmart Labs</div>
-      <div class="logo-pill">Salesforce</div>
-      <div class="logo-pill">Intuit</div>
-      <div class="logo-pill">Oracle</div>
-      <div class="logo-pill">Atlassian</div>
-      <div class="logo-pill">Coinbase</div>
-      <div class="logo-pill">Gojek</div>
-      <!-- dup -->
-      <div class="logo-pill">Google</div>
-      <div class="logo-pill">Amazon</div>
-      <div class="logo-pill">Meta</div>
-      <div class="logo-pill">Microsoft</div>
-      <div class="logo-pill">Apple</div>
-      <div class="logo-pill">Netflix</div>
-      <div class="logo-pill">OpenAI</div>
-      <div class="logo-pill">NVIDIA</div>
-      <div class="logo-pill">Stripe</div>
-      <div class="logo-pill">LinkedIn</div>
-      <div class="logo-pill">Uber</div>
-      <div class="logo-pill">Airbnb</div>
-      <div class="logo-pill">Adobe</div>
-      <div class="logo-pill">Flipkart</div>
-      <div class="logo-pill">Zomato</div>
-      <div class="logo-pill">Swiggy</div>
-      <div class="logo-pill">Paytm</div>
-      <div class="logo-pill">Walmart Labs</div>
-      <div class="logo-pill">Salesforce</div>
-      <div class="logo-pill">Intuit</div>
-      <div class="logo-pill">Oracle</div>
-      <div class="logo-pill">Atlassian</div>
-      <div class="logo-pill">Coinbase</div>
-      <div class="logo-pill">Gojek</div>
+      <div class="logo-pill">Google</div><div class="logo-pill">Amazon</div><div class="logo-pill">Meta</div><div class="logo-pill">Microsoft</div><div class="logo-pill">Apple</div><div class="logo-pill">Netflix</div><div class="logo-pill">OpenAI</div><div class="logo-pill">NVIDIA</div><div class="logo-pill">Stripe</div><div class="logo-pill">LinkedIn</div><div class="logo-pill">Uber</div><div class="logo-pill">Airbnb</div><div class="logo-pill">Adobe</div><div class="logo-pill">Flipkart</div><div class="logo-pill">Zomato</div><div class="logo-pill">Swiggy</div><div class="logo-pill">Paytm</div><div class="logo-pill">Walmart Labs</div><div class="logo-pill">Salesforce</div><div class="logo-pill">Intuit</div><div class="logo-pill">Oracle</div><div class="logo-pill">Atlassian</div><div class="logo-pill">Coinbase</div><div class="logo-pill">Gojek</div>
+      <div class="logo-pill">Google</div><div class="logo-pill">Amazon</div><div class="logo-pill">Meta</div><div class="logo-pill">Microsoft</div><div class="logo-pill">Apple</div><div class="logo-pill">Netflix</div><div class="logo-pill">OpenAI</div><div class="logo-pill">NVIDIA</div><div class="logo-pill">Stripe</div><div class="logo-pill">LinkedIn</div><div class="logo-pill">Uber</div><div class="logo-pill">Airbnb</div><div class="logo-pill">Adobe</div><div class="logo-pill">Flipkart</div><div class="logo-pill">Zomato</div><div class="logo-pill">Swiggy</div><div class="logo-pill">Paytm</div><div class="logo-pill">Walmart Labs</div><div class="logo-pill">Salesforce</div><div class="logo-pill">Intuit</div><div class="logo-pill">Oracle</div><div class="logo-pill">Atlassian</div><div class="logo-pill">Coinbase</div><div class="logo-pill">Gojek</div>
     </div>
   </div>
 </div>
 
-<!-- MARKET SIGNAL -->
+<!-- MARKET SIGNAL (6 fear cards) -->
 <section class="market-section" id="why-now">
   <div class="section-inner">
-    <div class="section-label">The New Hiring Imperative</div>
-    <h2>AI aptitude is no longer optional.<br><span class="highlight">It's table stakes.</span></h2>
-    <p class="section-desc">A Microsoft–LinkedIn joint survey of 31,000 professionals across 31 countries shows just how decisively leaders have shifted.</p>
+    <div class="section-label">The AI Talent Crisis Is Real</div>
+    <h2>India needs <span class="highlight">10 AI engineers</span><br>for every 1 that exists.</h2>
+    <p class="section-desc">These aren't projections — they're 2024–25 actuals. Every data point points to the same gap between those who act and those who wait.</p>
     <div class="market-grid">
       <div class="market-card">
-        <div class="market-num">77<span style="font-size:2rem">%</span></div>
-        <div class="market-headline">Early-career priority</div>
-        <div class="market-body">of leaders say early-in-career talent will get greater responsibility <strong>due to AI</strong>.</div>
+        <div class="market-num">51<span style="font-size:1.6rem">%</span></div>
+        <div class="market-headline">India's AI Talent Gap</div>
+        <div class="market-body">NASSCOM puts India's installed AI talent base at 416K vs demand of 629K — widening to 53% by 2026. There are 10 open GenAI roles for every qualified engineer.</div>
+        <div class="market-source">Source: NASSCOM-Deloitte 2025 · TeamLease FY26</div>
+      </div>
+      <div class="market-card">
+        <div class="market-num">82<span style="font-size:1.6rem">%</span></div>
+        <div class="market-headline">YoY Surge in ML Postings</div>
+        <div class="market-body">Naukri JobSpeak recorded ML Engineer postings up 82% YoY. By Dec 2025, 70% of all 64,500+ Naukri tech postings were AI-tagged.</div>
+        <div class="market-source">Source: Naukri JobSpeak, Dec 2025</div>
+      </div>
+      <div class="market-card">
+        <div class="market-num">71<span style="font-size:1.6rem">%</span></div>
+        <div class="market-headline">AI Skills Beat Seniority</div>
+        <div class="market-body">71% of leaders are more likely to hire a less experienced candidate with AI skills than a more experienced one without. 66% won't hire at all without AI skills.</div>
         <div class="market-source">Source: Microsoft–LinkedIn Work Trend Index 2024</div>
       </div>
       <div class="market-card">
-        <div class="market-num">71<span style="font-size:2rem">%</span></div>
-        <div class="market-headline">AI skills beat seniority</div>
-        <div class="market-body">of leaders are more likely to hire a less experienced candidate <strong>with AI skills</strong> than a more experienced one without.</div>
-        <div class="market-source">Source: Microsoft–LinkedIn Work Trend Index 2024</div>
+        <div class="market-num">33.9<span style="font-size:1.6rem">M</span></div>
+        <div class="market-headline">New AI-Driven Jobs by 2028</div>
+        <div class="market-body">India's workforce is set to grow by 33.9M by 2028 (423M → 457M), generating 2.73M new tech roles — most AI-anchored, per ServiceNow research.</div>
+        <div class="market-source">Source: ServiceNow India Workforce Report, Nov 2024</div>
       </div>
       <div class="market-card">
-        <div class="market-num">66<span style="font-size:2rem">%</span></div>
-        <div class="market-headline">Won't hire without AI</div>
-        <div class="market-body">of leaders say they <strong>would not hire</strong> someone without AI skills — across all levels, roles, and industries.</div>
-        <div class="market-source">Source: Microsoft–LinkedIn Work Trend Index 2024</div>
+        <div class="market-num">50<span style="font-size:1.6rem">%</span></div>
+        <div class="market-headline">Salary Premium for GenAI</div>
+        <div class="market-body">EY's Future of Pay 2024 puts super-niche AI/ML skills at a 30–50% wage premium. Senior GenAI roles benchmark ₹20–70 LPA vs ₹10–40 for traditional ML.</div>
+        <div class="market-source">Source: EY Future of Pay 2024 · IK Alumni Data</div>
+      </div>
+      <div class="market-card">
+        <div class="market-num">107<span style="font-size:1.6rem">%</span></div>
+        <div class="market-headline">GenAI Upskill Growth (India)</div>
+        <div class="market-body">Coursera India's GenAI enrolments grew 107% YoY to 2.6M — the highest in the world. The race to upskill is already on. The question is whether you lead or follow.</div>
+        <div class="market-source">Source: Coursera Global Skills Report 2025</div>
       </div>
     </div>
-    <p class="market-note">India's AI job postings grew 82% YoY (Naukri, 2024). 33.9M new roles by 2028 (ServiceNow). The time to upskill is now.</p>
   </div>
 </section>
 
@@ -2024,7 +1367,7 @@ footer {
         <div class="section-label">Programs</div>
         <h2>Pick the path that fits <span class="highlight">your goal.</span></h2>
       </div>
-      <p class="section-desc">Transparent pricing. 0% EMI from ₹8,333/month. Section 80E tax-eligible. Scholarship available on selected courses.</p>
+      <p class="section-desc">Transparent, published pricing. 0% EMI from ₹8,333/mo. Section 80E tax-eligible. Scholarship available on selected courses.</p>
     </div>
 
     <div class="programs-grid">
@@ -2038,16 +1381,17 @@ footer {
         </div>
         <div class="program-body">
           <div class="program-tagline">Add AI skills to your current domain / tech stack.</div>
-          <div class="program-price-row">
-            <span class="price-main">₹1L – ₹1.3L</span>
-          </div>
+          <div class="program-price-row"><span class="price-main">₹1L – ₹1.3L</span></div>
           <div class="price-emi">→ from ₹8,333/mo · 0% EMI</div>
           <ul class="program-features">
             <li><span class="check">✓</span> Build domain-specific AI aptitude</li>
             <li><span class="check">✓</span> LLMs, Prompt Engineering, RAG basics</li>
-            <li><span class="check">✓</span> All curriculum access · Live classes</li>
+            <li><span class="check">✓</span> Full curriculum access · Live classes</li>
             <li><span class="check">✓</span> Enrol now, start anytime</li>
           </ul>
+          <div class="tag-row">
+            <span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Prompting</span>
+          </div>
           <a href="https://in.interviewkickstart.com/courses/transformative-generative-ai" target="_blank" rel="noopener" class="program-btn outline">Learn More</a>
         </div>
       </div>
@@ -2058,20 +1402,21 @@ footer {
         <div class="program-header">
           <span class="program-tag">GenAI + Interview Lab</span>
           <div class="program-name">Transformative GenAI<br>+ Interview Lab</div>
-          <div class="program-duration">⏱ 3 + 3 months · Live + Mock Interviews</div>
+          <div class="program-duration">⏱ 3 + 3 months · Live + Mocks</div>
         </div>
         <div class="program-body">
-          <div class="program-tagline">AI-aptitude + better domain skills, wrapped with MAANG+ interview prep.</div>
-          <div class="program-price-row">
-            <span class="price-main">₹1.5L – ₹2.8L</span>
-          </div>
+          <div class="program-tagline">AI-aptitude + domain skills, wrapped with MAANG+ interview prep.</div>
+          <div class="program-price-row"><span class="price-main">₹1.5L – ₹2.8L</span></div>
           <div class="price-emi">→ from ₹12,500/mo · 0% EMI</div>
           <ul class="program-features">
             <li><span class="check">✓</span> LangChain, CrewAI, RAG, Agents</li>
             <li><span class="check">✓</span> 15 mock interviews with hiring managers</li>
-            <li><span class="check">✓</span> Placement assistance + referrals</li>
+            <li><span class="check">✓</span> Placement assistance + 199 referrals</li>
             <li><span class="check">✓</span> 6-month extended support period</li>
           </ul>
+          <div class="tag-row">
+            <span class="tag">LangChain</span><span class="tag">CrewAI</span><span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">Agents</span>
+          </div>
           <a href="https://in.interviewkickstart.com/courses/transformative-generative-ai-interview-lab" target="_blank" rel="noopener" class="program-btn primary">Enrol Now — May Cohort →</a>
         </div>
       </div>
@@ -2085,9 +1430,7 @@ footer {
         </div>
         <div class="program-body">
           <div class="program-tagline">Build enterprise-grade agentic AI & multi-agent systems.</div>
-          <div class="program-price-row">
-            <span class="price-main">₹2L – ₹2.8L</span>
-          </div>
+          <div class="program-price-row"><span class="price-main">₹2L – ₹2.8L</span></div>
           <div class="price-emi">→ from ₹16,666/mo · 0% EMI</div>
           <ul class="program-features">
             <li><span class="check">✓</span> MCP, ReAct, CrewAI, LangGraph tool-use</li>
@@ -2095,6 +1438,9 @@ footer {
             <li><span class="check">✓</span> PwC India capstone brief</li>
             <li><span class="check">✓</span> LangSmith eval + production deployment</li>
           </ul>
+          <div class="tag-row">
+            <span class="tag">MCP</span><span class="tag">Multi-Agent</span><span class="tag">LangGraph</span><span class="tag">LangSmith</span>
+          </div>
           <a href="https://in.interviewkickstart.com/courses/agentic-ai-career-accelerator" target="_blank" rel="noopener" class="program-btn outline">Learn More</a>
         </div>
       </div>
@@ -2108,67 +1454,115 @@ footer {
         </div>
         <div class="program-body">
           <div class="program-tagline">Gain ML skills to pivot into AI-intensive roles.</div>
-          <div class="program-price-row">
-            <span class="price-main">₹3L</span>
-          </div>
+          <div class="program-price-row"><span class="price-main">₹3L</span></div>
           <div class="price-emi">→ from ₹12,500/mo · 24-mo EMI</div>
           <ul class="program-features">
             <li><span class="check">✓</span> End-to-end ML engineering journey</li>
-            <li><span class="check">✓</span> GenAI + Agentic AI module included</li>
+            <li><span class="check">✓</span> GenAI + Agentic AI modules included</li>
             <li><span class="check">✓</span> Industry-ready capstone portfolio</li>
             <li><span class="check">✓</span> DS/MLE/DA/BA interview prep track</li>
           </ul>
+          <div class="tag-row">
+            <span class="tag">ML Engineering</span><span class="tag">MLOps</span><span class="tag">GenAI</span><span class="tag">Interview Prep</span>
+          </div>
           <a href="https://in.interviewkickstart.com/courses/flagship-machine-learning" target="_blank" rel="noopener" class="program-btn outline">Learn More</a>
         </div>
       </div>
 
     </div>
 
-    <div style="margin-top:2rem; padding:1rem 1.25rem; background:var(--bg3); border-radius:10px; border-left:3px solid var(--lime); font-size:0.82rem; color:var(--gray1);">
-      💡 <strong>Also available:</strong> 18 role-specific tracks across SWE, Backend, Frontend, Full-Stack, Test, iOS/Android, ML, Data Engineering, Data Science, BI, Cyber Security, SRE/DevOps, Embedded, Cloud, EM, PM(Tech), and TPM. <a href="https://in.interviewkickstart.com/courses" target="_blank" rel="noopener" style="color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--lime);">Browse all programs →</a>
+    <div class="pricing-note">
+      💡 <strong>Why transparent, published pricing?</strong> No lead-form gates, no counselor games, no affiliation markup. You pay for MAANG+ practitioners who actually hire at top companies — every rupee goes to instruction quality and interview readiness. <a href="https://in.interviewkickstart.com/courses" target="_blank" rel="noopener" style="color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--lime);">Browse all 18 role tracks →</a>
     </div>
   </div>
 </section>
 
-<!-- WHY IK -->
-<section class="why-section" id="why-ik">
+<!-- HOW IK COMPARES vs OTHER INSTITUTES -->
+<section class="comparison-section" id="compare">
   <div class="section-inner">
-    <div class="section-label">Why Senior Engineers Choose IK</div>
-    <h2>Built for outcomes.<br>Not for <span class="highlight">certificates.</span></h2>
-    <p class="section-desc">Ten years of refining what actually moves the needle for working engineers — curriculum, practitioners, referrals, and a real refund clause.</p>
+    <div class="section-label">Market Positioning</div>
+    <h2>How IK compares to<br><span class="highlight">other institutes.</span></h2>
+    <p class="section-desc">We surveyed the typical Indian AI-upskilling market. Here's a neutral comparison across the dimensions that actually drive outcomes.</p>
 
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">👨‍💻</div>
-        <div class="why-title">MAANG+ practitioners, not professors</div>
-        <div class="why-body">Every instructor is an active engineer at <strong>Google, Amazon, Meta, Microsoft, Apple, NVIDIA, OpenAI, TikTok, Intuit</strong>, or an ML tech lead. They've sat on the other side of the interview table — and train you for it.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🎯</div>
-        <div class="why-title">Interview-first curriculum</div>
-        <div class="why-body">Every track bundles an <strong>Interview Prep Lab</strong> — mock interviews, framework training, LinkedIn/resume optimization, behavioural prep, and offer negotiation — widely popular in Silicon Valley.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🤝</div>
-        <div class="why-title">199+ India hiring partners</div>
-        <div class="why-body">Performance-based referrals into <strong>Amazon, Google, Microsoft, PayPal, Oracle, Uber, Adobe, Salesforce, Atlassian, Walmart Labs, Fractal, Freshworks, Razorpay, Zoom, Red Hat</strong> and more.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">💰</div>
-        <div class="why-title">Transparent + flexible financing</div>
-        <div class="why-body">Published prices, <strong>0% EMI</strong> from ₹8,333/mo, Section 80E tax deduction under Old Regime, and employer reimbursement kit for Infosys/TCS/Wipro/GCC employees.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🔒</div>
-        <div class="why-title">50% Refund Clause</div>
-        <div class="why-body">Complete attendance + mocks + capstone and don't land a relevant role in 6 months? You get <strong>50% of fees refunded</strong>. We put our money where the outcomes are.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🏆</div>
-        <div class="why-title">TIME Top 100 EdTech 2025</div>
-        <div class="why-body">27,000+ alumni · ₹63 LPA avg package · ₹2Cr highest · 10× avg ROI · 18 disciplines supported · 10+ years of track record. Backed by Blume Ventures, $10M raised.</div>
-      </div>
+    <div class="compare-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="ik-col">Interview Kickstart</th>
+            <th>Other Institute A</th>
+            <th>Other Institute B</th>
+            <th>Other Institute C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Price range (India)</td>
+            <td class="ik-col">₹1L – ₹3L</td>
+            <td>₹3L – ₹4L</td>
+            <td>₹2.5L – ₹3.5L</td>
+            <td>₹2.8L – ₹3.5L</td>
+          </tr>
+          <tr>
+            <td>Pricing transparency</td>
+            <td class="ik-col"><span class="check-green">✓ Fully published</span></td>
+            <td><span class="check-amber">⚠ Review pages only</span></td>
+            <td><span class="check-red">✗ Counselor only</span></td>
+            <td><span class="check-amber">⚠ Partial disclosure</span></td>
+          </tr>
+          <tr>
+            <td>Instructor type</td>
+            <td class="ik-col">500+ MAANG+ practitioners</td>
+            <td>Ex-industry (generic)</td>
+            <td>Academic faculty</td>
+            <td>University partner faculty</td>
+          </tr>
+          <tr>
+            <td>Target audience</td>
+            <td class="ik-col">Early → 12+ YoE · 18 disciplines</td>
+            <td>0–5 YoE switchers</td>
+            <td>2+ YoE generalists</td>
+            <td>Broad / non-coders</td>
+          </tr>
+          <tr>
+            <td>GenAI-native curriculum</td>
+            <td class="ik-col"><span class="check-green">✓ LLMs as Day 1 core</span></td>
+            <td><span class="check-amber">⚠ Added on top of ML</span></td>
+            <td><span class="check-amber">⚠ Partial integration</span></td>
+            <td><span class="check-amber">⚠ Bolted on</span></td>
+          </tr>
+          <tr>
+            <td>Interview-first approach</td>
+            <td class="ik-col"><span class="check-green">✓ Interview Lab bundled</span></td>
+            <td><span class="check-amber">⚠ Placement assistance</span></td>
+            <td><span class="check-red">✗ Generic placement</span></td>
+            <td><span class="check-red">✗ Generic placement</span></td>
+          </tr>
+          <tr>
+            <td>0% no-cost EMI</td>
+            <td class="ik-col"><span class="check-green">✓ 12-mo 0% · 24/36-mo ext.</span></td>
+            <td><span class="check-green">✓ Yes</span></td>
+            <td><span class="check-green">✓ Yes</span></td>
+            <td><span class="check-amber">⚠ Partial</span></td>
+          </tr>
+          <tr>
+            <td>Section 80E eligible</td>
+            <td class="ik-col"><span class="check-green">✓ Actively marketed</span></td>
+            <td><span class="check-red">✗ Not marketed</span></td>
+            <td><span class="check-red">✗ Not marketed</span></td>
+            <td><span class="check-red">✗ Not marketed</span></td>
+          </tr>
+          <tr>
+            <td>Refund clause</td>
+            <td class="ik-col"><span class="check-green">14-day 100% + 50% milestone</span></td>
+            <td>14 days</td>
+            <td>7 days</td>
+            <td>7–42 days</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <div class="compare-note">* "Other Institute A/B/C" represents anonymised competitive benchmarks based on public listings, review pages, and alumni disclosures. Data refreshed Q1 2026.</div>
   </div>
 </section>
 
@@ -2222,9 +1616,7 @@ footer {
             <div class="calc-result-label">Net Out-of-Pocket</div>
           </div>
         </div>
-        <div class="calc-insight" id="calc-insight">
-          💡 Enter your salary and keep Old Regime to see Section 80E savings on your loan interest.
-        </div>
+        <div class="calc-insight" id="calc-insight">💡 Enter your salary and keep Old Regime to see Section 80E savings on your loan interest.</div>
         <div class="calc-note">* 80E applies to loan interest only (not principal), for loans from scheduled banks or RBI-registered NBFCs. Old Regime only. Consult your CA for final advice.</div>
       </div>
     </div>
@@ -2236,7 +1628,7 @@ footer {
   <div class="section-inner">
     <div class="section-label">Kickstart Scholarship</div>
     <h2>Earn your discount.<br><span class="highlight">Don't just ask.</span></h2>
-    <p class="section-desc">Take a 30-minute diagnostic, get ranked in your cohort, and unlock up to ₹25K off on selected courses.</p>
+    <p class="section-desc">A discount feels cheap. A scholarship feels earned. Take a 30-minute diagnostic, get ranked against your cohort, and unlock up to ₹25K off — merit-gated, not random.</p>
 
     <div class="scholarship-card">
       <div>
@@ -2279,17 +1671,20 @@ footer {
         <div style="font-size:0.85rem;color:var(--gray2);margin-bottom:1.5rem;line-height:1.5;">That's all the diagnostic takes. Results emailed within 24 hours. Award assigned before cohort starts.</div>
         <a href="https://in.interviewkickstart.com/scholarship" target="_blank" rel="noopener" class="btn-primary">Apply for Scholarship →</a>
         <div style="margin-top:0.75rem;font-size:0.7rem;color:var(--gray3);">Free to apply · No obligation to enrol</div>
+        <div class="sch-stack">
+          💰 <strong>Scholarship + EMI stack:</strong> Pay as little as <strong>₹6,250/month</strong> after ₹25K scholarship on a ₹1.5L program, via 0% 24-month EMI.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EMI -->
+<!-- EMI CALCULATOR -->
 <section class="emi-section" id="emi">
   <div class="section-inner">
     <div class="section-label">No-Cost EMI Calculator</div>
     <h2>Pay monthly.<br>Learn now, <span class="highlight">pay later.</span></h2>
-    <p class="section-desc">Financing available via Propelld, Eduvanz, InCred (0% up to 12 months) plus HDFC / ICICI / Amex credit-card EMI.</p>
+    <p class="section-desc">Financing via Propelld, Eduvanz, InCred (0% up to 12 months) plus HDFC / ICICI / Amex credit-card EMI. 24–36 month extended plans available for flexibility.</p>
 
     <div class="emi-card">
       <div class="emi-tabs">
@@ -2333,7 +1728,6 @@ footer {
             </div>
             <div class="emi-row"><span class="emi-row-label">Tenure</span><span class="emi-row-val" id="emi-tenure-val">12 months</span></div>
           </div>
-
           <div class="emi-lenders">
             <div class="emi-lenders-label">Lending partners</div>
             <div class="lender-pills">
@@ -2347,6 +1741,10 @@ footer {
           </div>
         </div>
       </div>
+
+      <div class="emp-note">
+        💼 <strong>Works at Infosys, Wipro, TCS, or a GCC?</strong> Most companies offer ₹25K–₹1L/year training reimbursement. After enrolment, we'll send you a pre-written HR email, GST-compliant invoice, and pitch deck to claim it. Effective out-of-pocket can drop close to zero.
+      </div>
     </div>
   </div>
 </section>
@@ -2359,11 +1757,12 @@ footer {
         <div class="section-label">Your Teachers</div>
         <h2>500+ MAANG+ <span class="highlight">practitioners.</span></h2>
       </div>
-      <p class="section-desc">Active engineers, tech leads, and applied scientists — not university faculty.</p>
+      <p class="section-desc">Active engineers, tech leads, and applied scientists from Silicon Valley — not university faculty.</p>
     </div>
   </div>
   <div class="scroll-strip">
-    <div class="instructor-card" style="margin-left:max(1.5rem, calc((100vw - 1200px) / 2))">
+    <div class="scroll-pad-start"></div>
+    <div class="instructor-card">
       <div class="instructor-avatar" style="background:linear-gradient(135deg,#C4F542,#D4FF5F)">DR</div>
       <div class="instructor-name">David Reed</div>
       <div class="instructor-company">Interview Kickstart</div>
@@ -2423,76 +1822,147 @@ footer {
       <div class="instructor-company">Google</div>
       <div class="instructor-role">Senior ML Engineer</div>
     </div>
-    <a href="https://in.interviewkickstart.com/instructors" target="_blank" rel="noopener" class="instructor-card" style="display:flex;flex-direction:column;justify-content:center;background:rgba(196,245,66,0.1);border-color:rgba(196,245,66,0.5);margin-right:max(1.5rem, calc((100vw - 1200px) / 2))">
+    <a href="https://in.interviewkickstart.com/instructors" target="_blank" rel="noopener" class="instructor-card" style="display:flex;flex-direction:column;justify-content:center;background:rgba(196,245,66,0.1);border-color:rgba(196,245,66,0.5);">
       <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--ink);letter-spacing:-0.04em">+490</div>
       <div class="instructor-name" style="margin-top:0.4rem">More Instructors →</div>
       <div class="instructor-role" style="margin-top:0.4rem">Meet the full faculty</div>
     </a>
+    <div class="scroll-pad-end"></div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="outcomes">
+<!-- WHY IK (6 pillars) -->
+<section class="why-section" id="why-ik">
+  <div class="section-inner">
+    <div class="section-label">Why Senior Engineers Choose IK</div>
+    <h2>Built for outcomes.<br>Not for <span class="highlight">certificates.</span></h2>
+    <p class="section-desc">Ten years of refining what actually moves the needle for working engineers — curriculum, practitioners, referrals, and a real refund clause.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">👨‍💻</div>
+        <div class="why-title">MAANG+ practitioners</div>
+        <div class="why-body">Every instructor is an active engineer at <strong>Google, Amazon, Meta, Microsoft, Apple, NVIDIA, OpenAI, TikTok, Intuit</strong>, or an ML tech lead. They've sat on the other side of the interview table — and train you for it.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Interview-first curriculum</div>
+        <div class="why-body">Every track bundles an <strong>Interview Prep Lab</strong> — mock interviews, framework training, LinkedIn/resume optimization, behavioural prep, and offer negotiation. Widely popular in Silicon Valley.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">199+ India hiring partners</div>
+        <div class="why-body">Performance-based referrals into <strong>Amazon, Google, Microsoft, PayPal, Oracle, Uber, Adobe, Salesforce, Atlassian, Walmart Labs, Fractal, Freshworks, Razorpay, Zoom, Red Hat</strong> and more.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <div class="why-title">Transparent + flexible financing</div>
+        <div class="why-body">Published prices, <strong>0% EMI</strong> from ₹8,333/mo, Section 80E tax deduction, and employer reimbursement kit for Infosys/TCS/Wipro/GCC employees.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <div class="why-title">50% Refund Clause</div>
+        <div class="why-body">Complete attendance + mocks + capstone and don't land a relevant role in 6 months? You get <strong>50% of fees refunded</strong>. We put our money where the outcomes are.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-title">TIME Top 100 EdTech 2025</div>
+        <div class="why-body">27,000+ alumni · ₹63 LPA avg package · ₹2Cr highest · 10× avg ROI · 18 disciplines · 10+ years of track record. Backed by Blume Ventures, $10M raised.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (horizontal scroll, 6 cards) -->
+<section id="outcomes">
   <div class="section-inner">
     <div class="section-head">
       <div>
-        <div class="section-label">Alumni Outcomes</div>
+        <div class="section-label">Alumni Outcomes — Hear It From Them</div>
         <h2>₹63 LPA average.<br>₹2 Crore <span class="highlight">highest offer.</span></h2>
       </div>
       <p class="section-desc">Named alumni with verifiable transitions. Full reviews on Google, Course Report, and Career Karma.</p>
     </div>
+  </div>
 
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"Got a golden-goose opportunity when he transitioned from IBM to Suse. Credits IK for the professional guidance that helped him land a <strong>2x hike</strong> — after failing multiple times before joining IK."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#C4F542,#D4FF5F)">SU</div>
-          <div>
-            <div class="author-name">Sushil</div>
-            <div class="author-detail">Sr SDE · IBM → Suse</div>
-          </div>
-          <div class="author-hike">2x hike</div>
+  <div class="scroll-strip">
+    <div class="scroll-pad-start"></div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Got a golden-goose opportunity when he transitioned from IBM to Suse. Credits IK for the professional guidance that helped him land a <strong>2x hike</strong> — after failing multiple times before joining IK."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#C4F542,#D4FF5F)">SU</div>
+        <div>
+          <div class="author-name">Sushil</div>
+          <div class="author-detail">Sr SDE · IBM → Suse</div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"Landed his dream role at Intuit when he took off from Quantiphi. Got a <strong>hike of more than 100%</strong> with the help of IK's profound domain expertise and TPM interview prep."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#6366F1,#A5B4FC)">AR</div>
-          <div>
-            <div class="author-name">Arindam</div>
-            <div class="author-detail">TPM · Quantiphi → Intuit</div>
-          </div>
-          <div class="author-hike">100%+ hike</div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"Credits IK (in her Google review) for helping her make a successful transition from Mindtree to one of her dream companies — <strong>AWS (Amazon)</strong>. Transitioned within a couple of months of completing the program."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#16A34A,#4ADE80)">KJ</div>
-          <div>
-            <div class="author-name">Kajal</div>
-            <div class="author-detail">SDE · Mindtree → AWS</div>
-          </div>
-          <div class="author-hike">Dream role</div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"Credits IK (in his Google review) for helping him transition from <strong>Oracle to Amazon</strong>. Says he not only found a new job, but also feels a lot more confident in his technical knowledge as an outcome of the program."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,#EAB308,#FACC15)">HA</div>
-          <div>
-            <div class="author-name">Harish</div>
-            <div class="author-detail">Sr SDE · Oracle → Amazon</div>
-          </div>
-          <div class="author-hike">MAANG+</div>
-        </div>
+        <div class="author-hike">2x hike</div>
       </div>
     </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Landed his dream role at Intuit when he took off from Quantiphi. Got a <strong>hike of more than 100%</strong> with the help of IK's profound domain expertise and TPM interview prep."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#6366F1,#A5B4FC)">AR</div>
+        <div>
+          <div class="author-name">Arindam</div>
+          <div class="author-detail">TPM · Quantiphi → Intuit</div>
+        </div>
+        <div class="author-hike">100%+ hike</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Credits IK (in her Google review) for helping her make a successful transition from Mindtree to one of her dream companies — <strong>AWS (Amazon)</strong>. Transitioned within a couple of months of completing the program, applying the learnings with the right approach."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#16A34A,#4ADE80)">KJ</div>
+        <div>
+          <div class="author-name">Kajal</div>
+          <div class="author-detail">SDE · Mindtree → AWS</div>
+        </div>
+        <div class="author-hike">Dream role</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"Credits IK (in his Google review) for helping him transition from <strong>Oracle to Amazon</strong>. Says he not only found a new job, but also feels a lot more confident in his technical knowledge as an outcome of the program."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#EAB308,#FACC15)">HA</div>
+        <div>
+          <div class="author-name">Harish</div>
+          <div class="author-detail">Sr SDE · Oracle → Amazon</div>
+        </div>
+        <div class="author-hike">MAANG+</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"The 80E tax calculator was what tipped me. Very few programs even mention it. My actual net cost after employer reimbursement + tax savings came to well under the sticker. The ROI math was obvious from Day 1."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#2563EB,#60A5FA)">NS</div>
+        <div>
+          <div class="author-name">Neha S.</div>
+          <div class="author-detail">GCC SDE → MAANG ML</div>
+        </div>
+        <div class="author-hike">₹62 LPA</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <div class="testimonial-text">"I was skeptical about the MAANG+ instructor claim. But my instructor had literally written interview rubrics at a top company. He knew exactly what to look for and what to teach. The mocks were harder than the actual interviews."</div>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background:linear-gradient(135deg,#DC2626,#F87171)">VT</div>
+        <div>
+          <div class="author-name">Vikram T.</div>
+          <div class="author-detail">Product Co. → Microsoft</div>
+        </div>
+        <div class="author-hike">+95% hike</div>
+      </div>
+    </div>
+    <div class="scroll-pad-end"></div>
+  </div>
 
+  <div class="section-inner">
     <div class="ratings-row">
       <div class="rating-item">⭐ <strong>4.8</strong><span class="src">Google Reviews</span></div>
       <div class="rating-item">⭐ <strong>4.8</strong><span class="src">Course Report</span></div>
@@ -2503,19 +1973,109 @@ footer {
   </div>
 </section>
 
-<!-- VIDEO TESTIMONIALS -->
-<section class="video-strip">
-  <div class="video-strip-inner">
+<!-- ALUMNI OFFERS STRIP -->
+<section class="offers-section">
+  <div class="section-inner">
     <div class="section-head">
       <div>
-        <div class="section-label">Alumni Stories on YouTube</div>
-        <h2>Hear it from <span class="highlight">engineers themselves.</span></h2>
+        <div class="section-label">Sample Offers · Recent Cohorts</div>
+        <h2>Where our alumni <span class="highlight">land.</span></h2>
+      </div>
+      <p class="section-desc">A snapshot of MAANG+ offers rolled out to IK alumni. Most had failed multiple interviews before joining IK.</p>
+    </div>
+  </div>
+  <div class="scroll-strip">
+    <div class="scroll-pad-start"></div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#C4F542,#D4FF5F)">RC</div>
+      <div class="offer-name">Ravi Chityala</div>
+      <div class="offer-role">ML Engineer</div>
+      <div class="offer-co">Apple</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#6366F1,#A5B4FC)">RA</div>
+      <div class="offer-name">Rohit Alekar</div>
+      <div class="offer-role">SWE · ML</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#16A34A,#4ADE80)">SV</div>
+      <div class="offer-name">Sanjay Vishwakarma</div>
+      <div class="offer-role">Sr ML Engineer</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#EAB308,#FACC15)">AJ</div>
+      <div class="offer-name">Anila Joshi</div>
+      <div class="offer-role">AWS ML</div>
+      <div class="offer-co">Amazon</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#DC2626,#F87171)">AK</div>
+      <div class="offer-name">Ankit Jain</div>
+      <div class="offer-role">EM · ML</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#2563EB,#60A5FA)">CR</div>
+      <div class="offer-name">Charishma Ravoori</div>
+      <div class="offer-role">Data & ML Engineer</div>
+      <div class="offer-co">AWS</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#0EA5E9,#38BDF8)">VP</div>
+      <div class="offer-name">Vaibhav Pattani</div>
+      <div class="offer-role">ML Engineer</div>
+      <div class="offer-co">Amazon</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#F97316,#FB923C)">GM</div>
+      <div class="offer-name">Gagan Mallarapu</div>
+      <div class="offer-role">Big Data · ML Group</div>
+      <div class="offer-co">Apple</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#A855F7,#C084FC)">SA</div>
+      <div class="offer-name">Suresh Aswathnarayana</div>
+      <div class="offer-role">Data Scientist</div>
+      <div class="offer-co">Amazon</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#059669,#34D399)">SS</div>
+      <div class="offer-name">Sayantan Satpati</div>
+      <div class="offer-role">ML Engineer</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#EC4899,#F472B6)">NA</div>
+      <div class="offer-name">Navid Ahmadi</div>
+      <div class="offer-role">Staff SWE · ML</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-avatar" style="background:linear-gradient(135deg,#10B981,#6EE7B7)">NR</div>
+      <div class="offer-name">Nikhil Rao</div>
+      <div class="offer-role">Sr SWE · ML</div>
+      <div class="offer-co">Meta</div>
+    </div>
+    <div class="scroll-pad-end"></div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Hear It From Engineers Themselves</div>
+        <h2>Alumni stories on <span class="highlight">YouTube.</span></h2>
       </div>
       <p class="section-desc">Full interview journeys, cohort walkthroughs, and MAANG+ interview teardowns — all on IK's YouTube.</p>
     </div>
   </div>
-  <div class="video-scroll">
-    <a href="https://www.youtube.com/@InterviewKickstartt/featured" target="_blank" rel="noopener" class="video-card" style="margin-left:max(1.5rem, calc((100vw - 1200px) / 2))">
+  <div class="scroll-strip">
+    <div class="scroll-pad-start"></div>
+    <a href="https://www.youtube.com/@InterviewKickstartt/featured" target="_blank" rel="noopener" class="video-card">
       <div class="video-thumb a">
         <div class="video-meta">Alumni Journey</div>
         <div class="video-play">▶</div>
@@ -2559,7 +2119,7 @@ footer {
         <div class="video-sub">Framework from IK's placement team</div>
       </div>
     </a>
-    <a href="https://www.youtube.com/@InterviewKickstartt/featured" target="_blank" rel="noopener" class="video-card" style="margin-right:max(1.5rem, calc((100vw - 1200px) / 2))">
+    <a href="https://www.youtube.com/@InterviewKickstartt/featured" target="_blank" rel="noopener" class="video-card">
       <div class="video-thumb b">
         <div class="video-meta">Cohort Walkthrough</div>
         <div class="video-play">▶</div>
@@ -2570,8 +2130,9 @@ footer {
         <div class="video-sub">Mock interviews, coaching, community</div>
       </div>
     </a>
+    <div class="scroll-pad-end"></div>
   </div>
-  <div class="video-strip-inner">
+  <div class="section-inner">
     <div class="yt-link-row">
       <a href="https://www.youtube.com/@InterviewKickstartt/featured" target="_blank" rel="noopener">Subscribe on YouTube — 50+ free lectures and alumni stories →</a>
     </div>
@@ -2579,7 +2140,7 @@ footer {
 </section>
 
 <!-- GUARANTEE -->
-<section id="guarantee">
+<section class="why-section" id="guarantee">
   <div class="section-inner">
     <div class="section-label">Career Protect Promise</div>
     <h2>We back outcomes,<br>not just <span class="highlight">content.</span></h2>
@@ -2619,53 +2180,36 @@ footer {
 
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Who is IK really for?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">IK is built for working tech professionals — early engineers, senior ICs, engineering managers, TPMs, PMs, ML engineers, and data professionals. Every track is customisable to your role and timeline. 18 disciplines are supported from SWE/Backend/Full-Stack to SRE/Cloud/Security and EM/PM(Tech)/TPM.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">Why is IK's pricing lower than many other institutes? Is the quality lower?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No university royalty, no aggressive sales-counselor cycle, no affiliation markup. Some other institutes route fees toward co-branding certificates and extended marketing overheads. IK routes every rupee to instruction quality. MAANG+ instructors who've sat on the interviewer's side of the table are what deliver the outcome — not a certificate from an affiliated institution.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's Section 80E and why should I care?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Section 80E of the Income Tax Act allows full deduction on education loan interest (no upper cap, up to 8 years) under the Old Regime. Loans from Propelld, Eduvanz, or InCred all qualify. For a 30% bracket, your net cost can drop 10–30%. Use our calculator above.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">I have 5–8 years of experience. Am I a good fit for IK?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — IK supports 18 disciplines across experience levels. Early engineers, senior ICs, Staff/Principal engineers, EMs, TPMs, PMs, ML engineers, data scientists, cloud/SRE engineers — every track is customisable to your role and timeline. Unlike broader platforms that assume you're learning Python from scratch, IK's curriculum assumes you're a strong engineer who needs to understand LLMs, multi-agent systems, RLHF, and senior-level interviewing.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How does the Kickstart Scholarship work?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">A 30-minute diagnostic test covering DSA, ML fundamentals, and system design. Your score ranks you within the cohort and unlocks one of four named scholarships (₹15K–₹25K off). Leaderboard is visible. Results emailed within 24 hours. Free to apply, no enrolment obligation.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">What is Section 80E and why should I care?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Section 80E of the Income Tax Act allows full deduction on education loan interest (no upper cap, up to 8 years) under the Old Regime. Loans from Propelld, Eduvanz, or InCred all qualify. For a 30% bracket engineer, your net cost can drop 10–30%. Very few programs actively market this. Use our calculator above to see your number.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's the refund policy?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Two clauses: (1) 14-day 100% refund from your first class, same-day processing. (2) 50% milestone-based refund if you complete attendance, mocks, and capstone and don't land a relevant role within 6 months. Terms are explicit upfront — no fine print.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">How does the Kickstart Scholarship work?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">A 30-minute diagnostic test covering DSA, ML fundamentals, and system design. Your score ranks you within the cohort and unlocks one of four named scholarships (₹15K–₹25K off). Leaderboard is visible. Results emailed within 24 hours. If you don't qualify for a merit scholarship, you can still apply for the Financial Assistance scholarship. Free to apply, no enrolment obligation.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can my company reimburse the fee?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Most Indian product companies and GCCs (Infosys, Wipro, TCS, Accenture, and most GCCs) have ₹25K–₹1L/year training budgets that go largely unclaimed. After enrolment, we send you a pre-written HR email, GST-compliant invoice, and pitch deck. If approved, your out-of-pocket can drop close to zero.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">What's the refund policy?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Two clauses: (1) 14-day 100% refund from your first class, same-day processing, no questions asked. (2) 50% milestone-based refund if you complete attendance, mocks, and capstone and don't land a relevant role within 6 months. Terms are explicit upfront — no fine print. Dropout rate among committed engineers is under 5%, so our commercial exposure is low.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is IK India-based or Silicon Valley-based?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Both. Founded in 2014 (Soham Mehta, ex-Microsoft/eBay/Box and Ryan Valles). HQ in Santa Clara, India operations out of HSR Layout, Bengaluru. India AI Launchpad is a dedicated India programme. 10+ years of track record, TIME Top 100 EdTech 2025, Blume Ventures backed.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can my company reimburse the fee?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most Indian product companies and GCCs (Infosys, Wipro, TCS, Accenture, and most GCCs) have ₹25K–₹1L/year training budgets that go largely unclaimed. After enrolment, we'll send you a pre-written HR email, GST-compliant invoice, and pitch deck. If approved, your out-of-pocket can drop close to zero — you finish the program from your company's training budget.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can I start anytime or do I have to wait for a cohort?
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Yes — enrol now, start anytime. Most programs blend async content with live weekend sessions and flexible mock interview scheduling, so you can progress around your current job. The Transformative GenAI program is fully self-paced + live.</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)">Is IK India-based or Silicon Valley-based?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Both. Founded in 2014 by Soham Mehta (ex-Microsoft/eBay/Box) and Ryan Valles. HQ is in Santa Clara, but most of the team operates from HSR Layout, Bengaluru. The India AI Launchpad is a dedicated India programme. Our instructors are genuinely from Google, Amazon, Meta, Microsoft, Apple — not academic faculty with affiliated connections. The "Silicon Valley" label refers to where our instructors are based and the interview standards we train for.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I start anytime or do I have to wait for a cohort?<span class="faq-arrow">▼</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — enrol now, start anytime. Most programs blend async content with live weekend sessions and flexible mock-interview scheduling, so you can progress around your current job. The Transformative GenAI program is fully self-paced + live. Interview Lab bundled programs align to rolling cohort windows for mock scheduling.</div></div>
       </div>
     </div>
   </div>
@@ -2763,10 +2307,10 @@ footer {
 <script>
 // COUNTDOWN
 function updateCountdown() {
-  const webinarDate = new Date();
-  webinarDate.setDate(webinarDate.getDate() + ((6 - webinarDate.getDay() + 7) % 7 || 7));
-  webinarDate.setHours(19, 0, 0, 0);
-  const diff = webinarDate - new Date();
+  const d = new Date();
+  d.setDate(d.getDate() + ((6 - d.getDay() + 7) % 7 || 7));
+  d.setHours(19, 0, 0, 0);
+  const diff = d - new Date();
   if (diff <= 0) return;
   const days = Math.floor(diff / 86400000);
   const hrs = Math.floor((diff % 86400000) / 3600000);
@@ -2808,7 +2352,7 @@ function handleWebinarSubmit() {
   updateSeats();
 }
 
-// 80E CALCULATOR
+// 80E CALC
 function calcTax() {
   const salary = parseFloat(document.getElementById('calc-salary').value) || 0;
   const price = parseFloat(document.getElementById('calc-price').value) || 0;
@@ -2830,7 +2374,7 @@ function calcTax() {
   document.getElementById('res-net').textContent = '₹' + net.toLocaleString('en-IN');
   let insight = '';
   if (regime === 'old' && taxSaving > 0) {
-    insight = `💡 Section 80E deducts ~₹${loanInterest.toLocaleString('en-IN')} interest/year — saving ~₹${taxSaving.toLocaleString('en-IN')} in taxes. Stacked with ₹${reimb.toLocaleString('en-IN')} employer reimbursement, your net cost is ₹${net.toLocaleString('en-IN')}.`;
+    insight = `💡 Section 80E deducts ~₹${loanInterest.toLocaleString('en-IN')} interest/year — saving ~₹${taxSaving.toLocaleString('en-IN')} in taxes. Stacked with ₹${reimb.toLocaleString('en-IN')} employer reimbursement, net cost is ₹${net.toLocaleString('en-IN')}.`;
   } else if (regime === 'new') {
     insight = '⚠️ Section 80E is not available under the New Tax Regime. Switch to Old Regime to unlock deductions.';
   } else {
@@ -2840,7 +2384,7 @@ function calcTax() {
 }
 calcTax();
 
-// EMI CALCULATOR
+// EMI CALC
 let currentEmiPrice = 200000;
 function setEmiTab(btn, price) {
   document.querySelectorAll('.emi-tab').forEach(t => t.classList.remove('active'));
